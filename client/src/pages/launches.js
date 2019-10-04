@@ -2,7 +2,7 @@ import React, { Fragment } from 'react';
 import { useQuery } from '@apollo/react-hooks';
 import gql from 'graphql-tag';
 
-import { LaunchTitle, Header, Button, Loading } from '../components';
+import { LaunchTile, Header, Button, Loading } from '../components';
 
 const GET_LAUNCHES = gql`
 	query launchList($after: String) {
@@ -54,7 +54,7 @@ export default function Launches() {
 			<Header />
 			{data.launches &&
 				data.launches.launches &&
-				data.launches.launches.map((launch) => <LaunchTitle key={launch.id} launch={launch} />)}
+				data.launches.launches.map((launch) => <LaunchTile key={launch.id} launch={launch} />)}
 			{data.launches &&
 			data.launches.hasMore && (
 				<Button
